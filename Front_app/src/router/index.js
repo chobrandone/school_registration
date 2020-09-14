@@ -1,27 +1,25 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import CreatComponent from '../components/CreateComponent.vue';
-import EditComponent from '../components/EditComponent.vue';
-import ListComponent from '../components/ListComponent.vue'
 
 Vue.use(VueRouter)
 
 const routes = [{
         path: '/',
         name: 'home',
-        component: CreatComponent
+        component: () =>
+            import ('../components/CreateComponent')
     },
     {
         path: '/view',
         name: 'view',
-
-        component: EditComponent
+        component: () =>
+            import ('../components/ListComponent')
     },
     {
         path: '/edit/:id',
         name: 'edit',
-
-        component: ListComponent
+        component: () =>
+            import ('../components/EditComponent')
     }
 ]
 

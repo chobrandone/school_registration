@@ -17,7 +17,7 @@ mongoose.connect(database.db, {
     }
 )
 
-const studentAPI = require('../backend/routes/student.route')
+const studentAPI = require('./routes /student.route')
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -36,7 +36,7 @@ const server = app.listen(port, () => {
 
 // Find 404
 app.use((req, res, next) => {
-    next(createError(404));
+    // next(createError(404));
 });
 
 // error handler

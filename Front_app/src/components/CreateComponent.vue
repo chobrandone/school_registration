@@ -27,6 +27,8 @@
 </template>
 
 <script>
+    import axios from "axios";
+
     export default {
         data() {
             return {
@@ -38,7 +40,20 @@
             }
         },
         methods: {
-            handleSubmitForm() { }
+            handleSubmitForm() {
+                let apiURL = 'http://localhost:4000/api/create-student';
+                
+                axios.post(apiURL, this.student).then(() => {
+                  this.$router.push('/view')
+                  this.student = {
+                    name: '',
+                    email: '',
+                    phone: ''
+                  }
+                }).catch(error => {
+                    console.log(error)
+                });
+            }
         }
     }
 </script>
